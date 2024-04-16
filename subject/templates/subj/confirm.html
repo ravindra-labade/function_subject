@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>confirmation</title>
+{% endblock %}
+{% block content %}
+        <h1>Do you really wants to delete this record</h1>
+        <form method="post">
+            {% csrf_token %}
+            <button>Yes</button>
+            <a href="{% url 'show_url' %}">
+                <button type="button">NO</button>
+            </a>
+        </form>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>Show</title>
+{% endblock %}
+{% block content %}
+        <table class="table table-danger table-hover">
+                    <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Subject</th>
+                                <th>Total Contents</th>
+                                <th>Total Poems</th>
+                                <th>Teacher</th>
+                                <th>Study Mode</th>
+                                <th colspan="2" class="text-center">Action</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        {% for subject in subjects %}
+                            <tr>
+                                <td>{{ subject.id }}</td>
+                                <td>{{ subject.subject_name }}</td>
+                                <td>{{ subject.total_contents }}</td>
+                                <td>{{ subject.total_poems }}</td>
+                                <td>{{ subject.study_mode }}</td>
+                                <td>
+                                    <a href="{% url 'update_url' subject.id %}">
+                                        <button class="btn btn-primary"><i class="bi bi-pencil-square"></i>&nbsp Update</button>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="{% url 'cancel_url' subject.id  %}">
+                                        <button class="btn btn-warning"><i class="bi bi-trash"></i>&nbsp Delete</button>
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+            </table>
+{% endblock %}
