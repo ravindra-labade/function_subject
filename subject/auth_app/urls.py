@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import user_login, user_signup, user_logout, change_password
+from .views import user_login, user_signup, user_logout, change_password, otp_view
 
 
 urlpatterns = [
@@ -7,4 +7,5 @@ urlpatterns = [
     path('signup/', user_signup, name='signup_url'),
     path('logout/', user_logout, name='logout_url'),
     path('cpass/', change_password, name='cpass_url'),
+    path('otp/', otp_view, name='otp_url'),
 ]
