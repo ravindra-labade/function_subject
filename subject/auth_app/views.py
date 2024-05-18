@@ -8,7 +8,7 @@ from django.contrib.auth import authenticate, login, logout
 from .forms import UserForm
 from django.core.mail import send_mail
 from .models import Otp
-from subject.settings import EMAIL_HOST_USER
+
 def user_login(request):
     template_name = 'auth_app/login.html'
     if request.method == 'POST':
@@ -38,7 +38,7 @@ def user_signup(request):
             for i in range(4):
                 otp += choice(li)
 
-            send_mail('otp', f'your otp is {otp}', EMAIL_HOST_USER,
+            send_mail('otp', f'your otp is {otp}', 'ravilabade111@gmail.com',
                       [user.email]
                       )
 
